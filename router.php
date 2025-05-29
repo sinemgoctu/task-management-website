@@ -2,7 +2,10 @@
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$routes = ["/" => "controllers/index.php"];
+$routes = [
+    "/" => "controllers/index.php",
+    "/task" => "controllers/task.php"
+];
 
 function routeToController($uri, $routes) {
     if (array_key_exists($uri, $routes)) {

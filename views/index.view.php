@@ -16,7 +16,7 @@
                         <tr>
                             <th scope="col"
                                 class="py-3.5 px-4 text-sm font-medium text-left rtl:text-right text-gray-700">
-                                    <span>Title</span>
+                                <span>Title</span>
                             </th>
 
                             <th scope="col"
@@ -24,10 +24,6 @@
                                 <span>Status</span>
                             </th>
 
-                            <th scope="col"
-                                class="px-4 py-3.5 text-sm font-medium text-left rtl:text-right text-gray-700">
-                                <span>Description</span>
-                            </th>
 
                             <th scope="col"
                                 class="px-4 py-3.5 text-sm font-medium text-left rtl:text-right text-gray-700">
@@ -41,12 +37,15 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+
+                        <?php foreach (displayAll() as $task) : ?>
                         <tr>
                             <td class="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
                                 <div class="inline-flex items-center gap-x-3">
                                     <div class="flex items-center gap-x-2">
                                         <div>
-                                            <p class="text-sm text-gray-900 dark:text-gray-300 whitespace-nowrap ">Shopping</p>
+                                            <p class="text-sm text-gray-900 dark:text-gray-300 whitespace-nowrap ">
+                                                <?=$task["title"]?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -59,12 +58,10 @@
                                 </div>
                             </td>
 
-                            <td class="px-4 py-4 text-sm text-gray-900 dark:text-gray-300 whitespace-nowrap">Buy
-                                groceries.
-                            </td>
+
 
                             <td class="px-4 py-4 text-sm text-gray-900 dark:text-gray-300 whitespace-nowrap">
-                                27.05.2025
+                                <?=$task["due_date"]?>
                             </td>
 
                             <td class="flex justify-end px-4 py-4 text-sm whitespace-nowrap">
@@ -78,18 +75,22 @@
                                     </button>
 
                                     <button class="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
+                                        <a href="/task?id=<?=$task["id"]?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                              stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                   d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
                                         </svg>
+                                        </a>
                                     </button>
-                                    <button class="relative right ml-10 bg-blue-500 text-white px-2 py-1.5 rounded">
+                                    <button class="px-2 py-2 font-medium text-white capitalize  transform bg-blue-400 rounded-lg hover:bg-blue-500">
                                         Mark as Complete
                                     </button>
                                 </div>
                             </td>
                         </tr>
+                        <?php endforeach;?>
+
                         </tbody>
                     </table>
                 </div>
