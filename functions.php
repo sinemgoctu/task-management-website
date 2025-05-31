@@ -16,3 +16,11 @@ function authorize($condition)
     }
 
 }
+
+function isValidDate($datetime)
+{
+    $format = 'Y-m-d';
+    $date = DateTime::createFromFormat($format, $datetime);
+
+    return $date && $date->format($format) === $datetime;
+}
