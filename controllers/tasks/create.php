@@ -1,12 +1,11 @@
 <?php
 
-require "Validator.php";
-$config = require('config.php');
+require base_path("Core/Validator.php");
+$config = require base_path("config.php");
 $db = new Database($config['database']);
+$errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $errors = [];
 
     if (!Validator::checkString($_POST['title'], 1, 100)) {
         $errors["title"] = "A title of no more than 100 characters is required";
@@ -27,4 +26,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-require "views/task-create.view.php";
+require base_path("views/tasks/create.view.php");

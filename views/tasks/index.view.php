@@ -1,5 +1,5 @@
-<?php require "partials/header.php"; ?>
-<?php require "partials/nav.php"; ?>
+<?php require base_path("views/partials/header.php"); ?>
+<?php require base_path("views/partials/nav.php"); ?>
 
 <section class="container px-4 mx-auto">
     <div class="flex items-center justify-between mt-6">
@@ -145,4 +145,4 @@
     </div>
 </section>
 
-<?php require "partials/footer.php"; ?>
+<?php require base_path("views/partials/footer.php"); ?>

@@ -24,3 +24,8 @@ function isValidDate($datetime)
 
     return $date && $date->format($format) === $datetime;
 }
+
+function base_path($path)
+{
+    return BASE_PATH . $path;
+}

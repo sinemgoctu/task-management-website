@@ -1,5 +1,5 @@
-<?php require "partials/header.php"; ?>
-<?php require "partials/nav.php"; ?>
+<?php require base_path("views/partials/header.php"); ?>
+<?php require base_path("views/partials/nav.php"); ?>
 
 <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Create a New Task</h2>
@@ -43,6 +43,6 @@
     </form>
 </section>
 
-<?php require "partials/footer.php"; ?>
+<?php require base_path("views/partials/footer.php"); ?>
 
 

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "/" => "controllers/index.php",
-    "/task" => "controllers/task.php",
-    "/task/create" => "controllers/task-create.php",
+    "/" => base_path("controllers/tasks/index.php"),
+    "/task" => base_path("controllers/tasks/edit.php"),
+    "/task/create" => base_path("controllers/tasks/create.php"),
 ];
