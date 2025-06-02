@@ -6,3 +6,5 @@ $router->get("/task/edit", "controllers/tasks/edit.php");
 $router->patch("/task", "controllers/tasks/update.php");
 $router->post("/", "controllers/tasks/store.php");
 $router->delete("/", "controllers/tasks/destroy.php");
+$router->get("/register", "controllers/registration/create.php");
+$router->post("/register", "controllers/registration/store.php");
