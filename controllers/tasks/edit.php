@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 $config = require base_path("config.php");
 $db = new Database($config['database']);
 
@@ -11,5 +13,5 @@ $currentUserId = 1;
 
 authorize($task["user_id"] === $currentUserId);
 
-require base_path("views/tasks/edit.view.php");
+view("tasks/edit", ["task" => $task]);
 

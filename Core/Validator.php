@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+use DateTime;
 class Validator
 {
     public static function checkString($value, $min = 1, $max = INF){

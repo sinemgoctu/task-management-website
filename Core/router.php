@@ -16,7 +16,7 @@ function routeToController($uri, $routes) {
 function abort($status_code = 404) {
     http_response_code($status_code);
 
-    require "views/$status_code.php";
+    require base_path("views/$status_code.php");
     die();
 }
 

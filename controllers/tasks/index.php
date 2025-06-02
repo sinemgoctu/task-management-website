@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 function displayAll()
 {
     $config = require base_path("config.php");
@@ -7,5 +9,5 @@ function displayAll()
     return $db->query(/** @lang text */ "SELECT * FROM tasks WHERE user_id = 1")->get();
 }
 
-require base_path("views/tasks/index.view.php");
+view("tasks/index", ["tasks" => displayAll()]);
 
