@@ -4,7 +4,7 @@
 <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Create a New Task</h2>
 
-    <form method="post">
+    <form method="POST" action="/">
         <div class="grid grid-cols-1 gap-6 mt-4">
             <div>
                 <label class="text-gray-700 dark:text-gray-200" for="title">Title</label>
@@ -20,6 +20,7 @@
                 <?php endif; ?>
 
 
+                <p class="mb-5"></p>
                 <label class="text-gray-700 dark:text-gray-200" for="due_date">Due Date</label>
                 <input id="due_date"
                        type="text"

@@ -10,6 +10,12 @@ function dd($value)
     die();
 }
 
+function abort($status_code = 404) {
+    http_response_code($status_code);
+
+    require base_path("views/$status_code.php");
+    die();
+}
 function authorize($condition)
 {
     if (!$condition) {
