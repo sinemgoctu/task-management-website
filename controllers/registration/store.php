@@ -36,10 +36,15 @@ if ($user) {
     exit();
 } else {
     $db->query(/** @lang text */ "INSERT INTO user (username, email, password) VALUES (:username, :email, :password)",
-    ["username" => $username, "email" => $email, "password" => $password]);
+    [
+        "username" => $username,
+        "email" => $email,
+        "password" => password_hash($password, PASSWORD_BCRYPT)
+    ]);
+
+    login(["username" => $username, "email" => $email]);
+
+    header("Location: /");
+    exit();
 }
 
-$_SESSION["user"] = ["username" => $username, "email" => $email];
-
-header("Location: /");
-exit();

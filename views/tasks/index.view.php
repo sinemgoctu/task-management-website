@@ -4,7 +4,8 @@
 <section class="container px-4 mx-auto">
     <div class="flex items-center justify-between mt-6">
         <div class="flex items-center gap-x-3">
-            <h2 class="text-xl font-medium text-gray-800 dark:text-white">My Tasks</h2>
+            <h2 class="text-xl font-medium text-gray-800 dark:text-white">
+                <?=$user["username"]. " Tasks"?></h2>
         </div>
 
         <button class="flex items-center px-2 py-2 font-medium text-white capitalize transform bg-red-400 rounded-lg hover:bg-red-500">
