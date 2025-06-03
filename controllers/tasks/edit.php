@@ -4,14 +4,16 @@ use Core\App;
 use Core\Database;
 
 $db = App::resolve(Database::class);
-$currentUserId = 1;
 
 $task = $db->query(/** @lang text */ "SELECT * FROM tasks WHERE id=:id", [
     "id" => $_GET["id"]
 ])->findOrFail();
 
+$user = $db->query( /** @lang text */ "SELECT * FROM user WHERE email=:email", ["email" => $_SESSION["user"]["email"]]
+)->find();
 
-authorize($task["user_id"] === $currentUserId);
+
+authorize($task["user_id"] === $user["id"]);
 
 view("tasks/edit", [
     "errors" => [],

@@ -7,6 +7,9 @@ use Core\Validator;
 $db = App::resolve(Database::class);
 $errors = [];
 
+$user = $db->query( /** @lang text */ "SELECT * FROM user WHERE email=:email", ["email" => $_SESSION["user"]["email"]]
+)->find();
+
 if (!Validator::checkString($_POST['title'], 1, 100)) {
     $errors["title"] = "A title of no more than 100 characters is required";
 }
@@ -24,7 +27,7 @@ $db->query(/** @lang text */ "INSERT INTO tasks (title, due_date, user_id)
     VALUES (:title, :due_date, :user_id)", [
     'title' => $_POST['title'],
     'due_date' => $_POST['due_date'],
-    'user_id' => 1
+    'user_id' => $user["id"]
 ]);
 
 header("Location: /");

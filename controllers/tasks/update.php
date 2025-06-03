@@ -5,13 +5,15 @@ use Core\Database;
 use Core\Validator;
 
 $db = App::resolve(Database::class);
-$currentUserId = 1;
 
 $task = $db->query(/** @lang text */ "SELECT * FROM tasks WHERE id=:id", [
     "id" => $_POST["id"]
 ])->findOrFail();
 
-authorize($task["user_id"] === $currentUserId);
+$user = $db->query( /** @lang text */ "SELECT * FROM user WHERE email=:email", ["email" => $_SESSION["user"]["email"]]
+)->find();
+
+authorize($task["user_id"] === $user["id"]);
 
 $errors = [];
 

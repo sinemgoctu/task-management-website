@@ -31,9 +31,7 @@ $user = $db->query(/** @lang text */ "SELECT * FROM user WHERE email = :email",
     ["email" => $email])->find();
 
 if ($user) {
-    $errors["email_taken"] = "This email is already taken";
-    header("Location: /");
-    exit();
+    return view("registration/create", ["errors" => ["email" => "This email is already taken"]]);
 } else {
     $db->query(/** @lang text */ "INSERT INTO user (username, email, password) VALUES (:username, :email, :password)",
     [
